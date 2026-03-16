@@ -50,7 +50,10 @@ resolution = st.selectbox(
 X_res = int(resolution.split('x')[0])
 Y_res = int(resolution.split('x')[1])
 
-ppi = ((X_res**2 + Y_res**2)**0.5)/screen_size
+try:
+    ppi = ((X_res**2 + Y_res**2)**0.5) / screen_size
+except:
+    ppi = 0
 
 # CPU
 cpu = st.selectbox('CPU',df['Cpu brand'].unique())
